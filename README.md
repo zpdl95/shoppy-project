@@ -25,3 +25,5 @@
 - ### API 부분을 별도로 관리하는것
 - ### hook으로 useQuery부분 관리하는 것
 - ### UI로직과 Business로직을 완전히 분리해서 관리하는 것
+- ### cloudinary 세팅과 사용법
+- ### firebase 세팅과 사용법

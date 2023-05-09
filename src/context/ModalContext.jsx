@@ -28,11 +28,12 @@ export function ModalContextProvider({ children }) {
     <ModalContext.Provider value={{ openModal }}>
       {children}
       {isModalOpen && (
-        <section className='flex justify-center items-center fixed w-screen h-screen top-0 left-0 bottom-0 right-0 z-50'>
+        <section className='flex justify-center items-center fixed w-screen h-screen top-0 left-0 z-50'>
           <div
             className='fixed w-screen h-screen top-0 left-0  bg-slate-800 opacity-70'
             onClick={closeModal}
-          />
+          ></div>
+
           <div className='w-96 h-56 flex flex-col justify-center items-center gap-5 absolute bg-white rounded-xl'>
             <h1 className='font-bold text-2xl'>삭제하시겠습니까?</h1>
             <h3 className='text-slate-500'>
