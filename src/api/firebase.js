@@ -35,6 +35,7 @@ export function logout() {
 }
 
 export function onUserStateChange(callback) {
+  // onAuthStateChanged 함수는 유저정보가 변하면 등록된 콜백함수를 자동으로 실행한다.
   onAuthStateChanged(auth, async (user) => {
     const updateUser = user && (await adminUser(user));
     callback(updateUser);
@@ -118,8 +119,10 @@ export async function addToCart(userId, product) {
       if (snapshot.exists()) {
         let addCount = 1;
         const items = snapshot.val();
+
         for (let index = 0; index < items.length; index++) {
           if (!addCount) break;
+          /* 같은 제품 && 같은 옵션이면 수량만 더하기 */
           if (items[index].productId === product.productId) {
             if (items[index].option === product.option) {
               items[index].quantity++;
@@ -128,6 +131,8 @@ export async function addToCart(userId, product) {
             }
           }
         }
+
+        /* 그 이외 전부 추가 */
         if (addCount) {
           addCount--;
           return set(ref(database, `/carts/${userId}`), [...items, product]);

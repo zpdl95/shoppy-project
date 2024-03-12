@@ -28,7 +28,7 @@ export function ModalContextProvider({ children }) {
     <ModalContext.Provider value={{ openModal }}>
       {children}
       {isModalOpen && (
-        <section className='flex justify-center items-center fixed w-screen h-screen top-0 left-0 z-50'>
+        <section className='flex justify-center items-center fixed w-full h-full top-0 left-0 z-50'>
           <div
             className='fixed w-screen h-screen top-0 left-0  bg-slate-800 opacity-70'
             onClick={closeModal}
